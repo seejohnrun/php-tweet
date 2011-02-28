@@ -1,0 +1,14 @@
+<?php
+
+require 'twitter.php';
+
+class TwitterStatusTest extends PHPUnit_Framework_TestCase {
+
+    function test_get_statuses_by_user_id() {
+        $statuses = TwitterStatus::get_user_timeline_by_screen_name('seejohnrun');
+        foreach ($statuses as $status) {
+            $this->assertType('TwitterStatus', $status);
+        }
+    }
+
+}
